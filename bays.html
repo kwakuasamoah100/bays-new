@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bays | Shawarma & Loaded Fries</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- External CSS Stylesheet -->
+  <link rel="stylesheet" href="bays.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <a href="#" class="logo">Bays</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+      <button class="cart-trigger" id="cartToggle">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <h2>Welcome to Bays</h2>
+      <p>Freshly made Shawarma wraps & Loaded Fries with gigantic flavors</p>
+      <a href="#menu" class="cta-btn">Explore Our Menu</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+      <h3 class="section-title">Our Menu</h3>
+
+      <div class="menu-grid">
+        <!-- Item 1 -->
+        <div class="menu-card">
+          <div>
+            <h4 class="dish-title">Chicken Shawarma</h4>
+            <div class="dish-price">$8.50</div>
+            <p class="dish-desc">Tender grilled chicken, fresh vegetables, creamy sauce, and our signature shawarma wrap.</p>
+          </div>
+          <button class="order-btn" onclick="addToCart('Chicken Shawarma', 8.50)">Add to Order</button>
+        </div>
+
+         
+        <!-- Item 1 -->
+        <div class="menu-card">
+          <div>
+            <h4 class="dish-title">Chicken & Beef Shawarma</h4>
+            <div class="dish-price">$8.50</div>
+            <p class="dish-desc">Tender grilled chicken, fresh vegetables, creamy sauce, and our signature shawarma wrap.</p>
+          </div>
+          <button class="order-btn" onclick="addToCart('Chicken Shawarma', 8.50)">Add to Order</button>
+        </div>
+
+
+        <!-- Item 2 -->
+        <div class="menu-card">
+          <div>
+            <h4 class="dish-title">Beef Shawarma</h4>
+            <div class="dish-price">$</div>
+            <p class="dish-desc">Juicy seasoned beef, fresh vegetables, creamy garlic sauce, and our signature shawarma wrap.</p>
+          </div>
+          <button class="order-btn" onclick="addToCart('Beef Shawarma', 9.50)">Add to Order</button>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-card">
+          <div>
+            <h4 class="dish-title">Loaded Fries</h4>
+            <div class="dish-price">$10.00</div>
+            <p class="dish-desc">Crispy golden fries topped with juicy grilled chicken, melted cheese, and a generous drizzle of signature sauces.</p>
+          </div>
+          <button class="order-btn" onclick="addToCart('Loaded Fries', 10.00)">Add to Order</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h3>Reach Us</h3>
+      <div class="contact-links">
+        <a href="mailto:baysyogurtandshawarma@gmail.com">✉️ baysyogurtandshawarma@gmail.com</a>
+        <a href="tel:0553849661">📞 0553849661</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shopping Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p style="color: #888; text-align: center; margin-top: 40px;">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <!-- External JavaScript File -->
+  <script src="bays.js"></script>
+</body>
+</html>
