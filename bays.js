@@ -1,6 +1,58 @@
 // Load saved cart or initialize empty array
 let cart = JSON.parse(localStorage.getItem('baysCart')) || [];
 
+// 1. Function called when a customer clicks a branch button
+function selectBranch(branchKey) {
+  // Hide the modal overlay
+  const modal = document.getElementById('branchModal');
+  if (modal) modal.style.display = 'none';
+
+  // Load the menu for the selected branch for this session only
+  loadMenuForBranch(branchKey);
+}
+
+// 2. Fetch and render menu data for the chosen branch
+async function loadMenuForBranch(branchKey) {
+  try {
+    const response = await fetch('menu.json');
+    const data = await response.json();
+    const branchData = data[branchKey];
+
+    if (!branchData) return;
+
+    // Optional: Update an active location heading on the page
+    const locationTag = document.getElementById('activeLocationText');
+    if (locationTag) {
+      locationTag.textContent = `Ordering from: ${branchData.branchName}`;
+    }
+
+    // Render the menu items
+    const menuGrid = document.getElementById('menuGrid');
+    if (menuGrid) {
+      menuGrid.innerHTML = branchData.menu.map(item => `
+        <div class="menu-card">
+          <div>
+            <h4 class="dish-title">${item.name}</h4>
+            <div class="dish-price">GH₵${Number(item.price).toFixed(2)}</div>
+            <p class="dish-desc">${item.desc}</p>
+          </div>
+          <button class="order-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Order</button>
+        </div>
+      `).join('');
+    }
+  } catch (error) {
+    console.error('Error loading branch menu:', error);
+  }
+}
+
+// 3. Always show the modal when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('branchModal');
+  if (modal) {
+    modal.style.display = 'flex'; // Ensures modal pops up on every fresh page visit
+  }
+});
+
 // DOM Elements
 const cartToggle = document.getElementById('cartToggle');
 const closeCart = document.getElementById('closeCart');
