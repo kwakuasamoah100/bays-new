@@ -12,7 +12,7 @@
 
 body {
   /* Set your background image URL */
-  background-image: url('shawarmapic.jpg');
+  background-image: url('images/shawarmapic.jpg');
 
   /* Scale the image to cover the entire screen, maintaining aspect ratio */
   background-size: cover;

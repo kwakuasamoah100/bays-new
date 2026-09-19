@@ -1,0 +1,32 @@
+{
+  "Haatso": {
+    "branchName": "Haatso",
+    "menu": [
+      {
+        "name": "Chicken Shawarma",
+        "price": 50.00,
+        "desc": "Loaded with grilled chicken, veggies, and special sauce"
+      },
+      {
+        "name": "Loaded Fries",
+        "price": 60.00,
+        "desc": "Crispy french fries topped with melted cheese and beef"
+      }
+    ]
+  },
+  "Botwe": {
+    "branchName": "Botwe",
+    "menu": [
+      {
+        "name": "Chicken Shawarma",
+        "price": 50.00,
+        "desc": "Loaded with grilled chicken, veggies, and special sauce"
+      },
+      {
+        "name": "Fried Rice & Chicken",
+        "price": 55.00,
+        "desc": "Savory fried rice served with crispy grilled chicken"
+      }
+    ]
+  }
+}
