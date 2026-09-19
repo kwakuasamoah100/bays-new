@@ -2,6 +2,32 @@
    BAYS RESTAURANT - ADMIN PORTAL (admin.js)
    ========================================================================== */
 
+// Firebase Setup
+const firebaseConfig = {
+  apiKey: "AIzaSyAlOr3iaTy62yvc-q4CaOydI48X3VUVIME",
+  authDomain: "bays-shawarma01.firebaseapp.com",
+  projectId: "bays-shawarma01",
+  storageBucket: "bays-shawarma01.firebasestorage.app",
+  messagingSenderId: "760940085395",
+  appId: "1:760940085395:web:486e6836b7cb32c74e0d66"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.firestore();
+
+// Save menu to Firestore
+async function saveMenuToCloud() {
+  try {
+    await db.collection("menus").doc("branches").set(fullMenuData);
+    alert("Menu updated successfully across all devices!");
+  } catch (error) {
+    console.error("Save error:", error);
+    alert("Failed to save menu changes.");
+  }
+}
+
 let fullMenuData = {};
 let currentAdminBranch = 'Haatso';
 
